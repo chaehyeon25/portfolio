@@ -417,6 +417,7 @@
             gap: 1rem;
             margin-top: 1rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .modal-date {
@@ -654,7 +655,7 @@
         <div class="quote">
             "Java 기반 시스템 유지보수와 운영 경험을 바탕으로 장애 발생 시 로그·데이터·네트워크 환경을 단계적으로 확인하며 원인을 분석해 왔습니다.
             AWS·EKS·Docker·VPN 등 클라우드 인프라 구축 경험을 확장하며 시스템의 개발뿐 아니라 운영 환경까지 이해하는 엔지니어로 성장하고 있습니다."
-    </div>
+        </div>
         <div class="contact-info">
             <a onclick="navigator.clipboard.writeText('qpqp8899@naver.com'); alert('이메일 주소(qpqp8899@naver.com)가 복사되었습니다!'); return false;"
                 title="클릭 시 이메일 주소 복사">📧 Email 복사</a>
@@ -669,7 +670,7 @@
         <section id="skills">
             <h2 class="section-title">Tech Stack</h2>
             <div class="skills-grid">
-                 <div class="skill-category">
+                <div class="skill-category">
                     <h3>Network & Security</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">VPC</span>
@@ -678,24 +679,28 @@
                         <span class="skill-tag">UFW 방화벽 / 보안그룹</span>
                         <span class="skill-tag">Spring Security</span>
                         <span class="skill-tag">JWT / OAuth2</span>
+                        <span class="skill-tag">AES-256-GCM 암호화</span>
+                        <span class="skill-tag">Cloudflare (SSL/WAF)</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Cloud & Infrastructure</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">AWS (EC2 / RDS / SSM)</span>
                         <span class="skill-tag">VPC</span>
                         <span class="skill-tag">EKS</span>
-                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Docker / Compose</span>
+                        <span class="skill-tag">Nginx</span>
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Terraform</span>
                         <span class="skill-tag">GitHub Actions</span>
                         <span class="skill-tag">ArgoCD</span>
                     </div>
-                 </div>   
+                </div>
                 <div class="skill-category">
                     <h3>Database</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">MariaDB</span>
                         <span class="skill-tag">MySQL</span>
                         <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">SQLite</span>
@@ -712,7 +717,7 @@
                         <span class="skill-tag">장애 대응</span>
                     </div>
                 </div>
-                 <div class="skill-category">
+                <div class="skill-category">
                     <h3>Backend & Full-Stack</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Java</span>
@@ -722,7 +727,7 @@
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">REST API</span>
                     </div>
-                </div>                    
+                </div>
                 <div class="skill-category">
                     <h3>Automation</h3>
                     <div class="skill-tags">
@@ -738,6 +743,24 @@
             <h2 class="section-title">Representative Projects</h2>
             <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">※ 카드를 클릭하시면 상세한 트러블슈팅 및 성과 지표를
                 확인하실 수 있습니다.</p>
+
+            <!-- NEW Project Card: 이서윤 국어학원 통합 관리 시스템 -->
+            <div class="summary-card" onclick="openModal('modal-0')">
+                <div class="card-header-top">
+                    <div class="card-icon">🏫</div>
+                    <div class="card-badge">풀스택 · 클라우드 운영 ↗</div>
+                </div>
+                <h3>이서윤 국어학원 통합 관리 시스템</h3>
+                <p class="desc">실제 학원 운영을 위한 React·Spring Boot·AWS(EC2/Private RDS)·Docker 기반 24시간 무중단 학사·학습·상담 통합 플랫폼 구축</p>
+                <div class="card-highlights">
+                    <span>AWS 격리 VPC & Keyless(SSM) 운영</span>
+                    <span>이중 JWT & AES-256 개인정보 암호화</span>
+                    <span>Docker·Nginx 무중단 보안 배포</span>
+                </div>
+                <div class="card-techs">
+                    <span>AWS EC2 / RDS</span><span>Docker</span><span>Nginx</span><span>Spring Boot</span><span>React</span><span>MariaDB</span><span>Cloudflare</span>
+                </div>
+            </div>
 
             <div class="summary-card" onclick="openModal('modal-1')">
                 <div class="card-header-top">
@@ -798,13 +821,28 @@
             <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">※ 카드를 클릭하시면 해결 과정과 습득 역량을 상세히
                 확인하실 수 있습니다.</p>
 
+            <!-- NEW Troubleshooting Card 1 -->
+            <div class="summary-card" onclick="openModal('modal-ts-5')">
+                <div class="card-header-top">
+                    <span class="project-role" style="background:#fee2e2; color:#991b1b; margin-top:0;">Cloud & Security</span>
+                    <div class="card-badge">해결 과정 보기 ↗</div>
+                </div>
+                <h3>1. AWS 운영 배포 중 발생한 MariaDB 11.8 스키마 검증 실패 및 Nginx 502 장애 해결</h3>
+                <p class="desc" style="margin-bottom: 0;">운영 RDS SSL 연동·Hibernate 메타데이터 호환성 오류 분석 및 비로그인 API 보안 감사 조치</p>
+                <div class="ts-problem-box">
+                    <strong>문제 상황:</strong>
+                    <p class="ts-list"><b>①</b> AWS EC2 배포 후 정적 페이지는 정상 노출되나 모든 API 호출 시 <code>JSON Parse error: Unrecognized token '&lt;'</code> (Nginx 502) 발생</p>
+                    <p class="ts-list"><b>②</b> 백엔드 정상 기동 직후에도 Nginx 리버스 프록시에서 502 응답이 지속되며, 보안 점검 중 비로그인 API 직접 조회 취약점 발견</p>
+                </div>
+            </div>
+
             <div class="summary-card" onclick="openModal('modal-ts-1')">
                 <div class="card-header-top">
                     <span class="project-role" style="background:#fee2e2; color:#991b1b; margin-top:0;">Infra &
                         Network</span>
                     <div class="card-badge">해결 과정 보기 ↗</div>
                 </div>
-                <h3>1. EKS - 온프레미스 VPN 연동 및 터널링 무중단 구축</h3>
+                <h3>2. EKS - 온프레미스 VPN 연동 및 터널링 무중단 구축</h3>
                 <p class="desc" style="margin-bottom: 0;">인프라 네트워크 / VPN 프로토콜 규격 통일 및 통신 단절 장애 해결</p>
                 <div class="ts-problem-box">
                     <strong>문제 상황:</strong>
@@ -818,7 +856,7 @@
                         Network</span>
                     <div class="card-badge">해결 과정 보기 ↗</div>
                 </div>
-                <h3>2. GPU AI 서버 SSH 무차별 대입 공격 대응 및 인프라 보안 강화</h3>
+                <h3>3. GPU AI 서버 SSH 무차별 대입 공격 대응 및 인프라 보안 강화</h3>
                 <p class="desc" style="margin-bottom: 0;">하이브리드 관제 환경에서 외부 노출 서버의 브루트포스(Brute-force) 차단</p>
                 <div class="ts-problem-box">
                     <strong>문제 상황:</strong>
@@ -832,7 +870,7 @@
                         style="background:#e0e7ff; color:var(--primary-color); margin-top:0;">Cloud & DevOps</span>
                     <div class="card-badge">해결 과정 보기 ↗</div>
                 </div>
-                <h3>3. S3 배포 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h3>
+                <h3>4. S3 배포 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h3>
                 <p class="desc" style="margin-bottom: 0;">쿠버네티스 헬스체크 및 프록시 보안 정책 충돌 해결</p>
                 <div class="ts-problem-box">
                     <strong>문제 상황:</strong>
@@ -847,7 +885,7 @@
                         style="background:#e0e7ff; color:var(--primary-color); margin-top:0;">Fullstack & API</span>
                     <div class="card-badge">해결 과정 보기 ↗</div>
                 </div>
-                <h3>4. 풀스택 ERP 통합 테스트 중 발생한 DTO 매핑 및 경로 충돌 장애 해결</h3>
+                <h3>5. 풀스택 ERP 통합 테스트 중 발생한 DTO 매핑 및 경로 충돌 장애 해결</h3>
                 <p class="desc" style="margin-bottom: 0;">React 프론트엔드와 Spring Boot 백엔드 연동 과정에서의 API 통신 오류 극복</p>
                 <div class="ts-problem-box">
                     <strong>문제 상황:</strong>
@@ -866,7 +904,7 @@
                 <div class="timeline-date">2026.02 ~ 2026.07</div>
                 <div class="timeline-title">SK쉴더스 루키즈 (SK Shieldus Rookies) 5기</div>
                 <div class="timeline-desc" style="margin-top: 0.5rem; line-height: 1.7;">
-                    <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem;">💡 💡 클라우드 인프라·네트워크·DevOps 실무 프로젝트 </p>
+                    <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.3rem;">💡 클라우드 인프라·네트워크·DevOps 실무 프로젝트 </p>
                     <div style="padding-left: 0.5rem; font-size: 0.95rem; color: var(--text-main);">
                         • <b>AWS 엔터프라이즈 인프라 구축:</b> VPC 네트워킹 서브넷 설계, 가용 영역(AZ) 분리, 보안 그룹 및 IAM 제어를 통한 최소 권한 원칙의 클라우드 인프라
                         설계 역량 확보.<br>
@@ -900,7 +938,7 @@
                     <div style="padding-left: 0.5rem; font-size: 0.95rem; color: var(--text-main);">
                         • <b>대구경북첨단의료산업진흥재단 시스템 전담 운영:</b> 메인 웹 포털과 인사/급여/회계를 아우르는 통합 ERP 시스템의 인프라 상태 상시 모니터링 및 안정성
                         확보.<br>
-                        • <b>Java/JSP 기능 개선:</b>사용자 요구사항을 분석하여 Java/JSP 소스를 수정하고 업무 기능 개선 및 오류 조치 수행.<br>
+                        • <b>Java/JSP 기능 개선:</b> 사용자 요구사항을 분석하여 Java/JSP 소스를 수정하고 업무 기능 개선 및 오류 조치 수행.<br>
                         • <b>CI/CD 및 애플리케이션 배포:</b> Jenkins를 활용하여 소스 코드 형상 관리 시스템과의 연동을 검증하고, 정기 빌드 및 무중단 배포 프로세스 관리 전반
                         수행.<br>
                         • <b>DB 및 데이터 검증:</b> MySQL 쿼리를 활용한 데이터 조회 및 검증, 신규 테이블 생성과 데이터 마이그레이션을 지원하고 시스템 오류 발생 시 관련 데이터를 확인하여 원인 분석 및 조치 수행.<br>
@@ -932,6 +970,54 @@
     <!-- ==========================================
          Modals (프로젝트 및 트러블슈팅 팝업 전체 모음)
          ========================================== -->
+
+    <!-- NEW Modal 0: 이서윤 국어학원 통합 관리 시스템 -->
+    <div id="modal-0" class="modal-overlay">
+        <div class="modal-content custom-scrollbar">
+            <span class="close-btn" onclick="closeModal('modal-0')">&times;</span>
+            <div class="modal-header">
+                <h2>이서윤 국어학원 통합 관리 시스템</h2>
+                <p>실제 학원 운영을 위한 React·Spring Boot·AWS(EC2/Private RDS)·Docker 기반 24시간 무중단 학사·학습·상담 통합 플랫폼</p>
+                <div class="modal-meta">
+                    <span class="project-role" style="background:#e0e7ff; color:var(--primary-color);">1인 전담 / 풀스택 개발 · 보안 아키텍처 · AWS 인프라 구축</span>
+                    <span class="modal-date">2026.10 ~ 2026.11</span>
+                </div>
+            </div>
+            <ul class="structured-list">
+                <li>
+                    <strong>역할:</strong>
+                    <div class="list-content role-content">
+                        비IT 운영자(학원 원장·강사)가 별도 서버 관리 없이 24시간 안정적으로 운영할 수 있도록 DB 모델링(11개 정규화 테이블, N:M 다자녀 매핑),
+                        Spring Boot REST API, React 권한별 대시보드, 개인정보 암호화·인증 보안 및 AWS 서울 리전 프로덕션 인프라 구축 전 과정 전담.
+                    </div>
+                </li>
+                <li>
+                    <strong>이슈 & 해결:</strong>
+                    <div class="list-content sub-content">
+                        <p><b>① 웹·모바일 앱 겸용 인증 및 개인정보 암호화 설계:</b> 향후 모바일 앱 확장을 고려해 웹(<code>HttpOnly</code> Cookie)과 앱(<code>Authorization: Bearer</code>)을 동시 지원하는 이중 JWT(Access/Refresh) 인증을 구현하고,
+                            JPA <code>AttributeConverter</code>로 학생·학부모 전화번호를 <b>AES-256-GCM</b> DB 레벨 암호화 및 비관리자 응답 마스킹(<code>010-****-5678</code>) 적용.
+                            CoolSMS(Solapi v4) HMAC-SHA256 기반 6자리 OTP 본인인증(3분 TTL, 재발송 쿨다운, 시도 제한) 연동.</p>
+                        <p><b>② Zero-Maintenance AWS 격리 인프라 구축:</b> 서울 리전(<code>ap-northeast-2</code>) Custom VPC에 Public(EC2)/Private(RDS) 2-AZ 서브넷을 분리하고,
+                            EC2의 SSH(22번 포트)를 완전 차단한 뒤 IAM Role 기반 <b>AWS SSM Session Manager</b>로만 관리 접속하도록 구성.
+                            RDS는 퍼블릭 액세스 차단·EC2 보안그룹 전용 3306 허용·SSL 통신 강제·KMS 디스크 암호화·7일 자동 백업·삭제 방지 적용.</p>
+                        <p><b>③ 컨테이너 보안 및 저사양 서버 안정성 확보:</b> Docker Multi-stage Build(Non-root 실행), <code>restart: always</code>, 2GB Swap 메모리 자동화,
+                            Docker 로그 로테이션(<code>10MB x 3</code>)을 배포 스크립트에 통합하고, Nginx에 IP Rate Limiting(로그인 초당 2회/일반 API 20회), Slowloris 타임아웃 방어, 숨김 파일(<code>.env</code>/<code>.git</code>) 차단 적용.</p>
+                    </div>
+                </li>
+                <li>
+                    <strong>성과 지표<br>(Metrics):</strong>
+                    <div class="list-content sub-content">
+                        <p>🛡️ <b>비로그인 개인정보 노출 원천 차단:</b> 자체 보안 감사로 비로그인 GET API 접근 가능 구간을 식별하고, 백엔드 화이트리스트 RBAC + 프론트엔드 <code>ProtectedRoute</code> + 로그아웃 메모리 초기화로 이중 방어(비로그인 <code>/api/students</code> → <b>HTTP 401 차단</b>) 완료.</p>
+                        <p>💰 <b>비용 효율적 보안 아키텍처:</b> 단일 EC2 환경에서 월 고정비가 발생하는 ALB 대신 <b>Cloudflare(무료 HTTPS·DDoS·WAF) + Nginx</b> 조합을 설계하여 고정비 절감 및 트래픽 폭탄 과금 위험 제거(추후 확장을 고려한 2-AZ VPC 사전 설계).</p>
+                        <p>🚀 <b>안정적 24시간 운영 체계 확립:</b> GitHub Private 저장소(<code>frontend</code>/<code>backend</code>/<code>infra</code> 브랜치 분리) + 읽기 전용 SSH Deploy Key 기반 원클릭 재배포 환경 완성.</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="project-links">
+                <a href="https://github.com/chaehyeon25" target="_blank">🔗 GitHub Profile (Private Repo)</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal 1: 스마트 안전 관제 시스템 -->
     <div id="modal-1" class="modal-overlay">
@@ -973,7 +1059,7 @@
                             주기의 VPN 연결 단절(Rekey Fail) 장애를 완벽히 해결하여 <b>실시간 AI 스트리밍 단절 0건</b> 기록.</p>
                         <p>🛡️ <b>데이터베이스 외부 노출(Attack Surface) 최소:</b> 인터넷 게이트웨이 접근을 원천 차단하고 사설망(10.0.0.0/16)을 통해서만 접근
                             가능한 폐쇄형 DB 아키텍처 구현.</p>
-                        <p>🚀 <b> 베포 자동화:</b> 인프라 전용 저장소(Infra-test)를 분리 운영하여 무결점 CI/CD 환경을 구축하고, 수동
+                        <p>🚀 <b>배포 자동화:</b> 인프라 전용 저장소(Infra-test)를 분리 운영하여 무결점 CI/CD 환경을 구축하고,
                             <b>GitHub Actions를 활용해 프론트엔드·백엔드·AI 서버의 배포 과정을 자동화하고 수동 배포 절차를 최소화</b>.
                         </p>
                     </div>
@@ -1060,9 +1146,9 @@
                 <li>
                     <strong>이슈 & 해결:</strong>
                     <div class="list-content sub-content">
-                        <p><b>① 데이터 수집 및 파싱 오류 개선:</b> 특정 언론사(경상도 등)의 날짜 파싱 오류와 인코딩 깨짐 현상을 정규표현식(`re`) 및 강제 인코딩 교정으로 해결.
-                            또한 DB 스키마 마이그레이션 과정에서 발생한 `no column named date` 문법 에러를 식별하고 구조를 수정하여 안정화.</p>
-                        <p><b>② 데이터 정합성 확보:</b> 두 개로 분리되어 수집된 DB(`news.db`, `news_scraped.db`)를 병합하는 과정에서 기사 URL을 기준으로
+                        <p><b>① 데이터 수집 및 파싱 오류 개선:</b> 특정 언론사(경상도 등)의 날짜 파싱 오류와 인코딩 깨짐 현상을 정규표현식(<code>re</code>) 및 강제 인코딩 교정으로 해결.
+                            또한 DB 스키마 마이그레이션 과정에서 발생한 <code>no column named date</code> 문법 에러를 식별하고 구조를 수정하여 안정화.</p>
+                        <p><b>② 데이터 정합성 확보:</b> 두 개로 분리되어 수집된 DB(<code>news.db</code>, <code>news_scraped.db</code>)를 병합하는 과정에서 기사 URL을 기준으로
                             중복 데이터를 제거하여 데이터의 무결성을 100% 확보.</p>
                         <p><b>③ 대시보드 렌더링 최적화:</b> UI에서 분석 일자 변경 시마다 방대한 지도 데이터를 새로 불러와 발생하는 병목 현상을 Streamlit 캐싱 시스템 개선을
                             통해 해결.</p>
@@ -1071,7 +1157,7 @@
                 <li>
                     <strong>성과 지표<br>(Metrics):</strong>
                     <div class="list-content sub-content">
-                        <p>⚡ <b>수집 속도 약 5~10배 향상:</b> `ThreadPoolExecutor`를 활용한 멀티 스레딩(Multi-threading) 병렬 처리 기법과 지수
+                        <p>⚡ <b>수집 속도 약 5~10배 향상:</b> <code>ThreadPoolExecutor</code>를 활용한 멀티 스레딩(Multi-threading) 병렬 처리 기법과 지수
                             백오프(Exponential Backoff) 재시도 로직을 도입하여 대규모 데이터 수집의 속도와 네트워크 안정성을 대폭 개선.</p>
                         <p>📊 <b>4,000여 건의 데이터 시각화 성공:</b> 4,000여 건 이상의 지역 경제 뉴스 데이터를 결측치 없이 정제하고, 추출된 감성 지수와 금융
                             데이터(KOSPI/KOSDAQ)의 시계열 결합 시각화 대시보드를 성공적으로 론칭하여 투자 인사이트 근거를 마련함.</p>
@@ -1084,12 +1170,50 @@
         </div>
     </div>
 
+    <!-- NEW Modal TS 5: AWS 운영 배포 MariaDB 11.8 & Nginx 502 & 보안 감사 -->
+    <div id="modal-ts-5" class="modal-overlay">
+        <div class="modal-content custom-scrollbar">
+            <span class="close-btn" onclick="closeModal('modal-ts-5')">&times;</span>
+            <div class="modal-header">
+                <h2>1. AWS 운영 배포 중 발생한 MariaDB 11.8 스키마 검증 실패 및 Nginx 502 장애 해결</h2>
+                <p>운영 RDS SSL 연동·Hibernate 메타데이터 호환성 오류 분석 및 비로그인 API 보안 감사 조치</p>
+                <div class="modal-meta">
+                    <span class="project-role" style="background:#fee2e2; color:#991b1b;">Cloud & Security</span>
+                </div>
+            </div>
+            <ul class="structured-list">
+                <li>
+                    <strong>문제 상황:</strong>
+                    <div class="list-content role-content">
+                        <p><b>①</b> AWS EC2·RDS 운영 배포 직후 정적 웹 페이지는 정상 노출되었으나, ID 중복확인·로그인 등 모든 API 요청 시 <code>JSON Parse error: Unrecognized token '&lt;'</code> 에러 발생.</p>
+                        <p><b>②</b> 백엔드 정상 기동 후에도 Nginx 프록시에서 502 응답이 지속되었으며, 운영 전 자체 보안 감사 중 비로그인 상태의 개인정보 GET API 직접 조회 가능성을 발견.</p>
+                    </div>
+                </li>
+                <li>
+                    <strong>해결 과정:</strong>
+                    <div class="list-content sub-content">
+                        <p><b>① 컨테이너 로그 분석 및 RDS SSL/메타데이터 호환성 해결:</b> <code>docker ps -a</code> 및 백엔드 로그 분석 결과, AWS RDS(MariaDB 11.8) SSL 연결(<code>sslMode=trust</code>)은 정상이나 Hibernate 6.5의 <code>ddl-auto: validate</code>가 MariaDB 11.8 테이블 메타데이터를 인식하지 못해 <code>missing table [attendances]</code> 예외로 재시작 루프에 빠진 것을 확인. RDS 실테이블 11개 존재를 검증한 뒤 운영 프로파일을 <code>ddl-auto: none</code>으로 전환하여 백엔드 정상 기동.</p>
+                        <p><b>② Docker 브리지 IP 변경에 따른 Nginx 502 캐시 불일치 해결:</b> 백엔드 컨테이너 재생성 시 Docker 내부 IP가 변경되었으나 기동 중이던 Nginx 컨테이너가 이전 업스트림 IP를 캐시하고 있음을 파악하고, Nginx 재시작 및 배포 검증 스크립트에 API 헬스체크(<code>curl</code>) 추가.</p>
+                        <p><b>③ 비로그인 API·URL 직접 접근 이중 차단:</b> <code>SecurityConfig</code>를 화이트리스트 방식(공지·상담·인증만 허용, 학생·학부모·출결·일지·숙제·클리닉은 <code>authenticated()</code>)으로 강화하고, React <code>ProtectedRoute</code> 및 로그아웃 시 인메모리 상태 초기화 적용.</p>
+                    </div>
+                </li>
+                <li>
+                    <strong>결과 및<br>습득 역량:</strong>
+                    <div class="list-content sub-content">
+                        Nginx ↔ Spring Boot ↔ Private RDS(SSL) 전 구간 정상 연동(<code>/api/notices</code> HTTP 200, 비로그인 <code>/api/students</code> HTTP 401 차단)을 검증했습니다.
+                        클라이언트 에러 메시지(<code>Unrecognized token '&lt;'</code>)에서 시작해 프록시(Nginx) → 컨테이너 네트워크 → ORM/DB 버전 호환성 → 보안 감사까지 풀스택 계층을 일관되게 추적·해결하는 실전 운영 역량을 증명했습니다.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Modal TS 1 -->
     <div id="modal-ts-1" class="modal-overlay">
         <div class="modal-content custom-scrollbar">
             <span class="close-btn" onclick="closeModal('modal-ts-1')">&times;</span>
             <div class="modal-header">
-                <h2>1. EKS - 온프레미스 VPN 연동 및 터널링 무중단 구축</h2>
+                <h2>2. EKS - 온프레미스 VPN 연동 및 터널링 무중단 구축</h2>
                 <p>인프라 네트워크 / VPN 프로토콜 규격 통일 및 통신 단절 장애 해결</p>
                 <div class="modal-meta">
                     <span class="project-role" style="background:#fee2e2; color:#991b1b;">Infra & Network</span>
@@ -1131,7 +1255,7 @@
         <div class="modal-content custom-scrollbar">
             <span class="close-btn" onclick="closeModal('modal-ts-2')">&times;</span>
             <div class="modal-header">
-                <h2>2. GPU AI 서버 SSH 무차별 대입 공격 대응 및 인프라 보안 강화</h2>
+                <h2>3. GPU AI 서버 SSH 무차별 대입 공격 대응 및 인프라 보안 강화</h2>
                 <p>하이브리드 관제 환경에서 외부 노출 서버의 브루트포스(Brute-force) 차단</p>
                 <div class="modal-meta">
                     <span class="project-role" style="background:#fee2e2; color:#991b1b;">Security & Network</span>
@@ -1147,7 +1271,7 @@
                 <li>
                     <strong>원인 추적:</strong>
                     <div class="list-content sub-content">
-                        <p><b>① 로그 분석(auth.log):</b> 시스템 로그를 정밀 분석한 결과, 외부 인터넷망에 노출된 GPU 서버의 SSH 포트를 대상으로 해외 IP 약 70여 개에서 반복적인 로그인 시도가 발생하고 있음을 확인했으며, </b>일반적인 계정명(root, admin, www-data 등)을 대상으로 한 브루트포스(Brute-force) 공격으로 판단함.</p>
+                        <p><b>① 로그 분석(auth.log):</b> 시스템 로그를 정밀 분석한 결과, 외부 인터넷망에 노출된 GPU 서버의 SSH 포트를 대상으로 해외 IP 약 70여 개에서 반복적인 로그인 시도가 발생하고 있음을 확인했으며, 일반적인 계정명(root, admin, www-data 등)을 대상으로 한 브루트포스(Brute-force) 공격으로 판단함.</p>
                         <p><b>② 쓰로틀링(MaxStartups) 병목:</b> 10시간 동안 무려 <b>1,625,496건의 연결이 MaxStartups 제한에 의해 드롭</b>되었으며,
                             대량의 SSH 연결 요청이 동시 연결 슬롯을 점유하면서 정상적인 팀원 접속에도 영향을 주고 있음을 확인.</p>
                     </div>
@@ -1168,7 +1292,7 @@
         <div class="modal-content custom-scrollbar">
             <span class="close-btn" onclick="closeModal('modal-ts-3')">&times;</span>
             <div class="modal-header">
-                <h2>3. S3 배포 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h2>
+                <h2>4. S3 배포 및 ALB 환경의 HTTP 503 및 Mixed Content 에러 해결</h2>
                 <p>쿠버네티스 헬스체크 및 프록시 보안 정책 충돌 해결</p>
                 <div class="modal-meta">
                     <span class="project-role" style="background:#e0e7ff; color:var(--primary-color);">Cloud &
@@ -1198,7 +1322,7 @@
                 <li>
                     <strong>결과 및<br>습득 역량:</strong>
                     <div class="list-content sub-content">
-                       네트워크 라우팅 규칙과 ALB 보안 정책을 조정하여 영상 호출 및 실시간 통신 문제를 해결했습니다. 
+                        네트워크 라우팅 규칙과 ALB 보안 정책을 조정하여 영상 호출 및 실시간 통신 문제를 해결했습니다.
                         이를 통해 웹 브라우저의 최신 보안 정책(PNA, CORS)과 클라우드 로드밸런싱 계층 간의 상관관계를 분석하고 문제를 해결하는 트러블슈팅 역량을 확보했습니다.
                     </div>
                 </li>
@@ -1211,7 +1335,7 @@
         <div class="modal-content custom-scrollbar">
             <span class="close-btn" onclick="closeModal('modal-ts-4')">&times;</span>
             <div class="modal-header">
-                <h2>4. 풀스택 ERP 통합 테스트 중 발생한 DTO 매핑 및 경로 충돌 장애 해결</h2>
+                <h2>5. 풀스택 ERP 통합 테스트 중 발생한 DTO 매핑 및 경로 충돌 장애 해결</h2>
                 <p>React 프론트엔드와 Spring Boot 백엔드 연동 과정에서의 API 통신 오류 극복</p>
                 <div class="modal-meta">
                     <span class="project-role" style="background:#e0e7ff; color:var(--primary-color);">Fullstack &
